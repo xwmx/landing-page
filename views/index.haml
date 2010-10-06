@@ -1,0 +1,26 @@
+!!!
+%html{html_attrs}
+  %head
+    %title Landing Page
+    %link{:rel => "stylesheet", :href => "/style.css", :type => "text/css", :media => "all"}
+    %script{:src=>"/jquery.min.js"}
+    %script{:src=>"/jquery.placeholder.min.js"}
+    :javascript
+      $(document).ready(function(){
+        $('input#email').placeholder();
+        $("form").submit(function(e){
+          e.preventDefault();
+          $.post("/notify", {"email" : $("#email").val()}, function(json){
+            if(json == true) {
+              $("form p#email_p").html("Thanks! We'll be in touch");
+            }
+          }, "json");
+        });
+      });
+  %body
+    %h1 Landing Page
+    #container
+      %form{ :action => "/notify", :method => "post", :name => "email_form"}
+        %p#email_p
+          %input#email{ :name => "email", :type => "text", :placeholder => "Your email"}
+          %input{ :type => "submit", :value => "Notify me"}
