@@ -3,6 +3,8 @@ GEM
   specs:
     bson (1.1)
     bson_ext (1.1)
+    compass (0.10.5)
+      haml (>= 3.0.4)
     haml (3.0.21)
     mongo (1.1)
       bson (>= 1.0.5)
@@ -15,6 +17,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (= 1.1)
+  compass (= 0.10.5)
   haml (= 3.0.21)
   mongo (= 1.1)
   sinatra (= 1.0)
