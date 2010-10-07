@@ -28,12 +28,14 @@ end
 
 post '/notify' do
   email = params[:email]
-  port = 27089 # port from mongohq
-  db = Mongo::Connection.new("mongohq-url", port).db("database")
-  auth = db.authenticate("username", "password")
-  coll = db.collection("emails")
-  doc = {"email" => email}
-  coll.insert(doc)
+  unless email.nil? || email.strip.empty?
+    port = 27089 # port from mongohq
+    db = Mongo::Connection.new("mongohq-url", port).db("database")
+    auth = db.authenticate("username", "password")
+    coll = db.collection("emails")
+    doc = {"email" => email}
+    coll.insert(doc)
+  end
   if request.xhr?
     "true"
   else
