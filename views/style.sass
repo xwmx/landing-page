@@ -1,17 +1,68 @@
 @import "compass/reset"
+@import "compass/utilities"
+@import "compass/layout"
+@import "compass/css3/text-shadow"
+@import "compass/css3/gradient"
+
+=border-radius($radius)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
+$button-base-color: #EF4832
 
 body
-  color: #000
-  background-color: #FFF
-  font-family: 'Lucida Grande', sans-serif
+  background-color: #EEE
+
+body
+  color: #444
+  font-family: Georgia, serif
   text-align: center
-
-a
-  color: #D900FF
-  text-decoration: underline
-  &:hover
+  min-height: 100%
+  margin: 0px auto
+  a
+    color: #1C23CC
     text-decoration: none
-
-form
-  .placeholder
-    color: #AAAAAA
+    &:hover
+      text-decoration: underline
+  p
+    text-align: left
+    padding: 10px 120px
+    font-size: 14px
+    line-height: 20px
+  form
+    input
+      border: 1px solid #AAA
+      +border-radius(3px)
+      padding: 5px
+      font:
+        size: 110%
+        family: Georgia, serif
+    input#email
+      width: 300px
+    input[type=submit]
+      border: 1px solid darken($button-base-color, 15)
+      +linear-gradient(color-stops($button-base-color, darken($button-base-color, 15)))
+      +text-shadow(#999, 0px, -1px)
+      color: #FFF
+      &:active
+        +linear-gradient(color-stops(darken($button-base-color, 15), darken($button-base-color, 30)))
+    .placeholder
+      color: #AAAAAA
+  #container
+    background-color: #FEFEFE
+    +border-radius(10px)
+    margin: 100px auto
+    width: 700px
+    padding: 30px 30px 50px 30px
+    #header
+      h1
+        +text-shadow
+        font:
+          size: 4em
+          weight: bold
+        line-height: 1.5em
+      border-bottom: 1px solid #777
+    #description
+      +clearfix
+      margin-top: 10px

@@ -18,9 +18,14 @@
         });
       });
   %body
-    %h1 Landing Page
     #container
-      %form{ :action => "/notify", :method => "post", :name => "email_form"}
+      #header
+        %h1 Landing Page
+      #description
+        %p If you'd like to know more, please leave your email and we'll keep you updated.
+      %form#email_form{ :action => "/notify", :method => "post", :name => "email_form"}
         %p#email_p
           %input#email{ :name => "email", :type => "text", :placeholder => "Your email"}
           %input{ :type => "submit", :value => "Notify me"}
+      #footer
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quam.
